@@ -1,0 +1,20 @@
+GET http://127.0.0.1:8000/blog/
+Content-Type: application/json
+Authorization: Token 3e785509a879f5067d1f4547ad1eef4b0f5e007a
+
+
+
+###
+
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{"username":"vishva1", "password":"Qwe@#123"}
+
+###
+
+GET http://127.0.0.1:8000/test_token/
+Content-Type: application/json
+Authorization: Token 4696bc347f132bfe997f37012ab68f103348e3d2
+
+{}
