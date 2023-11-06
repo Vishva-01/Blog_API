@@ -76,10 +76,8 @@ class SearchAPI(APIView):
         serializer = BlogSerializer(blogs, many=True) 
         return Response(serializer.data)
 
-class BlogAPI(APIView):
-    
-    authentication_classes = [TokenAuthentication]
-    permission_classes=[IsAuthenticated]
+class Blogs(APIView):
+
     def get(self, request):
         if request.user.is_superuser:
             blogs = BlogModel.objects.all().distinct()
@@ -88,7 +86,10 @@ class BlogAPI(APIView):
         serializer = BlogSerializer(blogs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+class BlogAPI(APIView):
     
+    authentication_classes = [TokenAuthentication]
+    permission_classes=[IsAuthenticated]
 
     def post(self, request):
         data = {
@@ -185,8 +186,8 @@ class BlogAPI(APIView):
 
 class CommentAPI(APIView):
 
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         comments = CommentModel.objects.all()

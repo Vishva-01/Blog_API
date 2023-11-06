@@ -13,6 +13,7 @@ urlpatterns = [
 
     path("user/",UserListAPI.as_view()),
 
+    path('blogs/',Blogs.as_view()),
     path('blog/',BlogAPI.as_view()),
     path('comment/',CommentAPI.as_view()),
 
