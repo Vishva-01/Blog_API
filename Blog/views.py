@@ -198,7 +198,7 @@ class CommentAPI(APIView):
         data = {
             'comment': request.data.get('comment'),
             'user': request.user.id, 
-            'blog_id': request.data.get('blog')
+            'blog': request.data.get('blog')
         }
 
         serializer = CommentSerializer(data=data)
