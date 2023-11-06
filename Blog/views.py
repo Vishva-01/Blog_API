@@ -225,7 +225,8 @@ class CommentAPI(APIView):
         try:
             comments = CommentModel.objects.get(id=comment_id)
             data = {
-                'comment': request.data.get('comment')
+                'comment': request.data.get('comment'),
+                # 'user':comments.user.id
             }
             serializer = CommentSerializer(comments, data=data, partial=True)
             if serializer.is_valid():
